@@ -27,13 +27,14 @@ header {
   background-color: var(--bg-color);
   color: var(--text-color);
   border-bottom: 1px solid #ccc;
-  flex-wrap: wrap; /* ทำให้องค์ประกอบสามารถขึ้นบรรทัดใหม่ได้เมื่อพื้นที่ไม่พอ */
-  box-sizing: border-box; /* ทำให้ padding ไม่ล้นเกิน width */
+  flex-wrap: wrap; 
+  box-sizing: border-box; 
+  position: relative; 
 }
 
 header h1 {
   margin: 0;
-  font-size: 36px;
+  font-size: 24px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -43,8 +44,8 @@ header h1 {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-grow: 1; /* ให้ส่วนนี้ขยายเต็มพื้นที่ที่เหลืออยู่ */
-  justify-content: flex-end; /* จัดให้ไปทางขวาในหน้าจอใหญ่ */
+  flex-grow: 1; 
+  justify-content: flex-end; 
 }
 
 .search-container {
@@ -66,7 +67,7 @@ header h1 {
   border: 1px solid #ccc;
   background-color: var(--bg-color);
   color: var(--text-color);
-  box-sizing: border-box; /* ทำให้ padding ไม่ล้นเกิน width */
+  box-sizing: border-box; 
 }
 
 .theme-btn {
@@ -154,8 +155,13 @@ header h1 {
 }
 
 [data-theme="dark"] .category.active {
+  background-color: #fff;
+  color: #333;
+}
+
+[data-theme="dark"] .category {
   background-color: #333;
-  color: #fff;
+  color: #f0f0f0;
 }
 
 .comics {
@@ -232,7 +238,7 @@ footer {
 /* --- สำหรับหน้าจอขนาดเล็ก (ไม่เกิน 600px) --- */
 @media (max-width: 600px) {
   header {
-    flex-direction: column; /* จัดเรียงในแนวตั้ง */
+    flex-direction: column; 
     align-items: center;
     padding: 10px;
   }
@@ -241,6 +247,8 @@ footer {
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
+    position: static; 
+    transform: none; 
   }
 
   .search-and-theme {
