@@ -4,12 +4,53 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Innocent Wind</title>
-<link rel="stylesheet" href="style.css">
+
 <style>
-  body {
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --highlight-color: #007bff;
+  }
+
+  [data-theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --highlight-color: #ff6600;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
     background-color: var(--bg-color);
     color: var(--text-color);
+    color-scheme: light dark;
+    overscroll-behavior: contain;
   }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+  }
+
+  /* fixed layer ครอบ viewport สำหรับ overscroll */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    z-index: -1;
+  }
+
   .app-header {
     width: 100%;
     display: flex;
@@ -77,6 +118,7 @@
   }
 
   .detail-container {
+    width: 100%;
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
@@ -106,6 +148,7 @@
     justify-content: space-around;
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
+    width: 100%;
   }
   .detail-nav a {
     padding: 10px 15px;
@@ -122,12 +165,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 15px;
+    width: 100%;
   }
   .episode-item {
     background-color: #f0f0f0;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
   }
   [data-theme="dark"] .episode-item {
     background-color: #333;
@@ -149,9 +194,17 @@
     transform: translateY(-2px);
     box-shadow: 0 3px 6px rgba(0,0,0,0.15);
   }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid #ccc;
+    background: var(--bg-color);
+    width: 100%;
+  }
 </style>
 </head>
-<body data-theme="light">
+<body data-theme="dark">
   <div class="app-header">
     <div class="left-items">
       <a href="index.html">←</a>
@@ -183,6 +236,7 @@
     </div>
 
     <div class="episode-list">
+      <!-- ตัวอย่างตอน -->
       <div class="episode-item">
         <img src="https://via.placeholder.com/100x120?text=ตอน+1" alt="ตอน 1">
         <p>ตอน 1</p>
@@ -229,7 +283,5 @@
   <footer>
     <p>&copy; 2024 Webtoon</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
