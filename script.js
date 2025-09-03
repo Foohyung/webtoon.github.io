@@ -75,28 +75,39 @@ let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
 const banner = document.querySelector('.banner'); 
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+let autoSlideInterval;
 
 const showSlide = (index) => {
   slides.forEach((slide, i) => {
     slide.classList.remove('active');
-    if(i === index) slide.classList.add('active');
+    if (i === index) slide.classList.add('active');
   });
 };
 
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
+const nextSlide = () => {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
+};
+
+const resetAutoSlide = () => {
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = setInterval(nextSlide, 5000); // 5 seconds
+};
 
 if (prevBtn) {
   prevBtn.addEventListener('click', () => {
     currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     showSlide(currentSlide);
+    resetAutoSlide();
   });
 }
 
 if (nextBtn) {
   nextBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    showSlide(currentSlide);
+    nextSlide();
+    resetAutoSlide();
   });
 }
 
@@ -109,22 +120,21 @@ if (banner) {
     startX = e.touches[0].clientX;
   });
 
-  banner.addEventListener('touchmove', (e) => {
-    endX = e.touches[0].clientX;
-  });
-
   banner.addEventListener('touchend', () => {
     const swipeDistance = endX - startX;
     if (swipeDistance > 50) {
       currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
       showSlide(currentSlide);
+      resetAutoSlide();
     } else if (swipeDistance < -50) {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      showSlide(currentSlide);
+      nextSlide();
+      resetAutoSlide();
     }
   });
 }
 
+// Start auto-slide on page load
+resetAutoSlide();
 showSlide(currentSlide);
 
 // Prevent double-tap zoom
