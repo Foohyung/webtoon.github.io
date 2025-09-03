@@ -74,7 +74,7 @@ if (searchBar) {
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
-const banner = document.querySelector('.banner'); // Get the banner element
+const banner = document.querySelector('.banner'); 
 
 const showSlide = (index) => {
   slides.forEach((slide, i) => {
@@ -104,26 +104,30 @@ if (nextBtn) {
 let startX = 0;
 let endX = 0;
 
-banner.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-});
+if (banner) {
+  banner.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
 
-banner.addEventListener('touchmove', (e) => {
-  endX = e.touches[0].clientX;
-});
+  banner.addEventListener('touchmove', (e) => {
+    endX = e.touches[0].clientX;
+  });
 
-banner.addEventListener('touchend', () => {
-  const swipeDistance = endX - startX;
-  // Swipe right
-  if (swipeDistance > 50) {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    showSlide(currentSlide);
-  }
-  // Swipe left
-  else if (swipeDistance < -50) {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    showSlide(currentSlide);
-  }
-});
+  banner.addEventListener('touchend', () => {
+    const swipeDistance = endX - startX;
+    if (swipeDistance > 50) {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    } else if (swipeDistance < -50) {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+  });
+}
 
 showSlide(currentSlide);
+
+// Prevent double-tap zoom
+document.addEventListener('dblclick', function(e) {
+  e.preventDefault();
+}, { passive: false });
