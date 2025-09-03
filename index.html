@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webtoon</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body data-theme="light">
+
+<header>
+  <h1>Webtoon</h1>
+  <div class="search-and-theme">
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="search-bar" placeholder="ค้นหาชื่อการ์ตูน...">
+    </div>
+    <button id="theme-btn" class="theme-btn">&#x1F319;</button>
+  </div>
+</header>
+
+<section class="banner">
+  <div class="slides">
+    <div class="slide active" style="background-image:url('banner1.webp')"></div>
+    <div class="slide" style="background-image:url('banner2.jpg')"></div>
+    <div class="slide" style="background-image:url('banner3.jpg')"></div>
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</section>
+
+<section class="categories">
+  <div class="category active" data-category="all">ทั้งหมด</div>
+  <div class="category" data-category="action">แอ็คชั่น</div>
+  <div class="category" data-category="fantasy">แฟนตาซี</div>
+  <div class="category" data-category="comedy">ตลก</div>
+  <div class="category" data-category="romance">โรแมนติก</div>
+</section>
+
+<section class="comics">
+  <a href="innocent-wind.html" class="comic-link">
+    <div class="comic" data-category="fantasy">
+      <img src="commic6.jpeg" alt="Innocent Wind">
+      <div class="comic-info">
+        <p class="title">Innocent Wind</p>
+        <div class="stats">
+          <span>&#x1F441; 2</span><span>&#x1F48C; 1</span>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <div class="comic" data-category="action">
+    <img src="commic7.jpeg" alt="Heavenly Light, Bright Moon">
+    <div class="comic-info">
+      <p class="title">Heavenly Light, Bright Moon</p>
+      <div class="stats">
+        <span>&#x1F441; 3</span><span>&#x1F48C; 6</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="comic" data-category="fantasy">
+    <img src="commic1.jpeg" alt="Wizard of Infinity">
+    <div class="comic-info">
+      <p class="title">Wizard of Infinity</p>
+      <div class="stats">
+        <span>&#x1F441; 4</span><span>&#x1F48C; -</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="comic" data-category="comedy">
+    <img src="commic2.jpeg" alt="Semi-basement Room">
+    <div class="comic-info">
+      <p class="title">Semi-basement Room</p>
+      <div class="stats">
+        <span>&#x1F441; 5</span><span>&#x1F48C; -</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="comic" data-category="romance">
+    <img src="commic3.jpeg" alt="Romantic Fever">
+    <div class="comic-info">
+      <p class="title">Romantic Fever</p>
+      <div class="stats">
+        <span>&#x1F441; 6</span><span>&#x1F48C; -</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="comic" data-category="action">
+    <img src="commic4.jpeg" alt="The Last Summoner">
+    <div class="comic-info">
+      <p class="title">The Last Summoner</p>
+      <div class="stats">
+        <span>&#x1F441; 7</span><span>&#x1F48C; -</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="comic" data-category="fantasy">
+    <img src="commic5.jpeg" alt="Reincarnated as a Vampire">
+    <div class="comic-info">
+      <p class="title">Reincarnated as a Vampire</p>
+      <div class="stats">
+        <span>&#x1F441; 8</span><span>&#x1F48C; -</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2024 Webtoon</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

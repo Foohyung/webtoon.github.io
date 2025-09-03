@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innocent Wind</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  .app-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid #ccc;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .app-header .left-items, .app-header .right-items {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .app-header button, .app-header a {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .app-header .title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .comic-hero {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-image: url('https://i.ibb.co/30kL61J/innocent-wind.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  }
+  .comic-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);
+  }
+  .comic-hero-content {
+    position: relative;
+    z-index: 1;
+  }
+  .comic-hero h1 {
+    margin: 0 0 5px 0;
+    font-size: 28px;
+  }
+  .comic-hero p {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .detail-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .read-button-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .read-button {
+    background-color: var(--highlight-color);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .detail-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  .detail-nav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+  }
+  .detail-nav a.active {
+    border-bottom: 2px solid var(--highlight-color);
+    color: var(--highlight-color);
+  }
+
+  .episode-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  .episode-item {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  [data-theme="dark"] .episode-item {
+    background-color: #333;
+  }
+  .episode-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+  }
+  .episode-item p {
+    font-size: 12px;
+    text-align: center;
+    margin: 5px 0;
+    color: var(--text-color);
+  }
+  .episode-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  }
+</style>
+</head>
+<body data-theme="light">
+  <div class="app-header">
+    <div class="left-items">
+      <a href="index.html">←</a>
+      <span class="title">Innocent Wind</span>
+    </div>
+    <div class="right-items">
+      <button>ที่เก็บ</button>
+      <button>...</button>
+    </div>
+  </div>
+
+  <div class="comic-hero">
+    <div class="comic-hero-content">
+      <h1>Innocent Wind</h1>
+      <p>ผู้แต่ง: John Doe, ผู้แปล: Jane Smith</p>
+    </div>
+  </div>
+
+  <div class="detail-container">
+    <div class="read-button-container">
+      <a href="#" class="read-button">เปิดอ่านตอนแรก</a>
+    </div>
+
+    <div class="detail-nav">
+      <a href="#" class="active">ตอน</a>
+      <a href="#">ข้อมูล</a>
+      <a href="#">ความคิดเห็น</a>
+      <a href="#">ตั้งค่า</a>
+    </div>
+
+    <div class="episode-list">
+      <div class="episode-item">
+        <img src="https://via.placeholder.com/100x120?text=ตอน+1" alt="ตอน 1">
+        <p>ตอน 1</p>
+      </div>
+      <div class="episode-item">
+        <img src="https://via.placeholder.com/100x120?text=ตอน+2" alt="ตอน 2">
+        <p>ตอน 2</p>
+      </div>
+      <div class="episode-item">
+        <img src="https://via.placeholder.com/100x120?text=ตอน+3" alt="ตอน 3">
+        <p>ตอน 3</p>
+      </div>
+      <div class="episode-item">
+        <img src="https://via.placeholder.com/100x120?text=ตอน+4" alt="ตอน 4">
+        <p>ตอน 4</p>
+      </div>
+      <div class="episode-item">
+        <img src="https://via.placeholder.com/100x120?text=ตอน+5" alt="ตอน 5">
+        <p>ตอน 5</p>
+      </div>
+      <div class="episode-item">
+        <img src="https://via.placeholder.com/100x120?text=ตอน+6" alt="ตอน 6">
+        <p>ตอน 6</p>
+      </div>
+      <div class="episode-item">
+        <img src="https://via.placeholder.com/100x120?text=ตอน+7" alt="ตอน 7">
+        <p>ตอน 7</p>
+      </div>
+      <div class="episode-item">
+        <img src="https://via.placeholder.com/100x120?text=ตอน+8" alt="ตอน 8">
+        <p>ตอน 8</p>
+      </div>
+      <div class="episode-item">
+        <img src="https://via.placeholder.com/100x120?text=ตอน+9" alt="ตอน 9">
+        <p>ตอน 9</p>
+      </div>
+      <div class="episode-item">
+        <img src="https://via.placeholder.com/100x120?text=ตอน+10" alt="ตอน 10">
+        <p>ตอน 10</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Webtoon</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
