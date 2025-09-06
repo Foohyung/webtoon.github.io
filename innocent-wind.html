@@ -8,14 +8,14 @@
 <style>
   :root {
     --bg-color: #ffffff;
-    --text-color: #000000;
-    --highlight-color: #007bff;
+    --text-color: #333;
+    --highlight-color: #333;
   }
 
   [data-theme="dark"] {
     --bg-color: #000000;
     --text-color: #ffffff;
-    --highlight-color: #ff6600;
+    --highlight-color: #ff6f61;
   }
 
   * {
@@ -39,7 +39,6 @@
     overflow-x: hidden;
   }
 
-  /* fixed layer ครอบ viewport สำหรับ overscroll */
   body::before {
     content: "";
     position: fixed;
@@ -126,41 +125,72 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
+
+  /* --- ปุ่ม เปิดอ่านตอนแรก --- */
   .read-button-container {
     text-align: center;
     margin-bottom: 20px;
   }
   .read-button {
-    background-color: var(--highlight-color);
-    color: #fff;
-    padding: 12px 30px;
-    border-radius: 25px;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    text-decoration: none;
     display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .read-button:hover {
+    background-color: #ddd;
+  }
+  .read-button.active {
+    background-color: #333;
+    color: #fff;
+  }
+  [data-theme="dark"] .read-button {
+    background-color: #333;
+    color: #f0f0f0;
+  }
+  [data-theme="dark"] .read-button.active {
+    background-color: #fff;
+    color: #333;
   }
 
+  /* --- ปุ่มเมนู (ตอน / ข้อมูล / ความคิดเห็น / ตั้งค่า) --- */
   .detail-nav {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    border-bottom: 1px solid #ccc;
+    justify-content: center;
+    gap: 70px;
     margin-bottom: 20px;
-    width: 100%;
   }
   .detail-nav a {
-    padding: 10px 15px;
+    padding: 12px 40px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    font-weight: bold;
     text-decoration: none;
     color: var(--text-color);
-    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .detail-nav a:hover {
+    background-color: #ddd;
   }
   .detail-nav a.active {
-    border-bottom: 2px solid var(--highlight-color);
-    color: var(--highlight-color);
+    background-color: #333;
+    color: #fff;
+  }
+  [data-theme="dark"] .detail-nav a {
+    background-color: #333;
+    color: #f0f0f0;
+  }
+  [data-theme="dark"] .detail-nav a.active {
+    background-color: #fff;
+    color: #333;
   }
 
+  /* --- รายการตอน --- */
   .episode-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -204,7 +234,7 @@
   }
 </style>
 </head>
-<body data-theme="dark">
+<body>
   <div class="app-header">
     <div class="left-items">
       <a href="index.html">←</a>
@@ -236,7 +266,6 @@
     </div>
 
     <div class="episode-list">
-      <!-- ตัวอย่างตอน -->
       <div class="episode-item">
         <img src="https://via.placeholder.com/100x120?text=ตอน+1" alt="ตอน 1">
         <p>ตอน 1</p>
@@ -282,6 +311,5 @@
 
   <footer>
     <p>&copy; 2024 Webtoon</p>
-  </footer>
-</body>
-</html>
+    <script src="script.js"></script>
+  </
