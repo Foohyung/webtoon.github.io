@@ -31,6 +31,7 @@ if (themeBtn) {
 }
 
 // Category filter
+// ส่วนนี้เป็นโค้ดเดิม
 const categories = document.querySelectorAll('.category');
 const comics = document.querySelectorAll('.comic');
 
@@ -41,7 +42,14 @@ categories.forEach(cat => {
 
     const selected = cat.dataset.category;
     comics.forEach(comic => {
-      comic.style.display = (selected === 'all' || comic.dataset.category === selected) ? 'block' : 'none';
+      // Find the top-level container, which could be the comic itself or a parent link
+      const container = comic.closest('.comic-link') || comic;
+
+      if (selected === 'all' || comic.dataset.category === selected) {
+        container.classList.remove('hidden');
+      } else {
+        container.classList.add('hidden');
+      }
     });
   });
 });
