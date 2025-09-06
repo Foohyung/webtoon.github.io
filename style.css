@@ -1,0 +1,285 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #333;
+  --highlight-color: #ff6f61;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1e1e1e;
+  --text-color: #eee;
+  --highlight-color: #ff6f61;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-bottom: 1px solid #ccc;
+  flex-wrap: wrap; 
+  box-sizing: border-box; 
+  position: relative; 
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.search-and-theme {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1; 
+  justify-content: flex-end; 
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+.search-icon {
+  color: var(--text-color);
+  margin-right: 5px;
+}
+
+#search-bar {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  box-sizing: border-box; 
+}
+
+.theme-btn {
+  font-size: 1.5rem;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+/* -------- Banner -------- */
+.banner {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  height: 300px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.banner button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.banner .prev {
+  left: 10px;
+}
+
+.banner .next {
+  right: 10px;
+}
+
+/* -------- Categories -------- */
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.category {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  color: #333;
+}
+
+.category.active {
+  background-color: #333;
+  color: #fff;
+}
+
+[data-theme="dark"] .category.active {
+  background-color: #fff;
+  color: #333;
+}
+
+[data-theme="dark"] .category {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+/* -------- Comics -------- */
+.comics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  justify-content: center;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.comic-link.hidden, .comic.hidden {
+  display: none;
+}
+
+.comics .comic.hidden {
+  display: none;
+}
+.comic-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.comic {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.comic img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.comic-info {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 5px;
+}
+
+.comic-info .title {
+  margin: 0;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.comic-info .stats {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+
+.comic-info .stats span {
+  margin-right: 10px;
+}
+
+/* -------- Footer -------- */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+
+/* --- Responsive (ไม่เกิน 600px) --- */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column; 
+    align-items: center;
+    padding: 10px;
+  }
+  
+  header h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    position: static; 
+    transform: none; 
+  }
+
+  .search-and-theme {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .search-container {
+    flex-grow: 1; 
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .comics {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
