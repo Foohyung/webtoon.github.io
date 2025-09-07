@@ -29,15 +29,13 @@ header {
   border-bottom: 1px solid #ccc;
   flex-wrap: wrap; 
   box-sizing: border-box; 
-  position: relative; 
+  /* ลบ position: relative; ออก */
 }
 
 header h1 {
   margin: 0;
   font-size: 24px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  /* ลบ position: absolute; left: 50%; transform: translateX(-50%); ออก */
 }
 
 .search-and-theme {
@@ -187,9 +185,6 @@ header h1 {
   display: none;
 }
 
-.comics .comic.hidden {
-  display: none;
-}
 .comic-link {
   text-decoration: none;
   color: inherit;
@@ -251,7 +246,7 @@ footer {
   box-sizing: border-box;
 }
 
-//* --- Responsive (ไม่เกิน 768px) สำหรับมือถือและแท็บเล็ต --- */
+/* --- Responsive (ไม่เกิน 768px) สำหรับมือถือและแท็บเล็ต --- */
 @media (max-width: 768px) {
   header {
     flex-direction: column; 
@@ -263,9 +258,6 @@ footer {
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
-    /* ยกเลิกตำแหน่ง absolute เพื่อให้เรียงกันได้ */
-    position: static; 
-    transform: none; 
   }
 
   .search-and-theme {
